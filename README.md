@@ -2,7 +2,7 @@
 # Jira ETL
 
 <h4 align="left"> 
-	 Status: Finished
+	 Status: Under Development
 </h4>
 
 <p align="left">
@@ -30,7 +30,7 @@ Edit the config files to your instance of Jira and create you db connection to s
 ### Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com), [Python3.6+] (https://https://www.python.org/)
+[Git] (https://git-scm.com), [Python 3.6+] (https://https://www.python.org/).
 As a suggestion, use a modern editor like [Pycharm] (https://www.jetbrains.com/pt-br/pycharm/) or [VSCode ] (https://code.visualstudio.com/)
 
 #### Dependencies
@@ -63,7 +63,7 @@ $ python main.py
 ## Author
 
 <a href="https://github.com/jh-ecomp?tab=repositories">
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/21336271?s=400&u=4b4ff916cafb59709adaa958f3c0f46bed35ae62&v=4" width="100px;" alt="Thiago Marinho"/>
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/21336271?s=400&u=4b4ff916cafb59709adaa958f3c0f46bed35ae62&v=4" width="100px;" alt="João Henrique"/>
  <br />
  <sub><b>João Henrique</b></sub></a> <a href="https://github.com/jh-ecomp?tab=repositories" title="João Henrique"></a>
  <br />
