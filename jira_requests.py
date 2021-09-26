@@ -7,15 +7,10 @@ from requests.exceptions import Timeout
 import traceback
 
 
-def mount_jira_session():
+def mount_jira_session(jira_domain):
     auth = HTTPBasicAuth('fake@example.com', 'not_a_real_password')
 
-    with open('jira.config') as jira_config:
-        line = jira_config.readline()
-        while line:
-            if line.find('jira-domain'):
-                url = jira_config.readline()
-                break
+    url = f'{jira_domain}'
     retries = Retry(total=5, backoff_factor=1)
     session = Session()
     session.mount('http://', HTTPAdapter(max_retries=retries))
@@ -49,10 +44,9 @@ def get_jira_main_request(main_request, jql, fields, expand, start_at, max_resul
     if response is None: return response
 
     try:
-        json = response.json()
-        issues = json['issues']
+        issues = response.json()
     except Exception as e:
-        print(f'Failed to load response content')
+        print(f'Failed to load response content cause {e}')
         issues = None
 
 
