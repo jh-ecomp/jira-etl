@@ -23,14 +23,16 @@ Jira ETL is a python jira etl script to allow you to extract your issues, manipu
 
 ## How it works
 
-This project is a python script that collects issues from Jira through its Rest API.
+This project is a python script that collects issues from Jira through its Rest API. Using Postgresql to store the jira data,
+I choose SQLAlchemy and Psycopg to manipulate my data warehouse.
 
-Edit the config files to your instance of Jira and create you db connection to start the ETL.
+Edit the config files to your instance of Jira to start the ETL.
+This script is modular, so feel free to forget the whole database thing and build your own.
 
 ### Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com), [Python 3.6+] (https://https://www.python.org/).
+[Git] (https://git-scm.com), [Python 3.6+] (https://https://www.python.org/), [PostgreSQL] (https://www.postgresql.org/).
 As a suggestion, use a modern editor like [Pycharm] (https://www.jetbrains.com/pt-br/pycharm/) or [VSCode ] (https://code.visualstudio.com/)
 
 #### Dependencies
@@ -42,6 +44,9 @@ $ pip install SQLAlchemy
 
 # Requests
 $ pip install requests
+
+# Psycopg2
+$ pip install psycopg2
 
 ```
 
