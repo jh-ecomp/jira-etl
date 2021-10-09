@@ -1,5 +1,4 @@
-from sqlalchemy import Column, String, Integer, TIMESTAMP
-from dateutil.parser import parse
+from sqlalchemy import Column, String, Integer, TIMESTAMP, Date
 from base_model import Base
 
 
@@ -13,7 +12,9 @@ class MyJiraProject(Base):
     summary = Column(String)
     description = Column(String)
     priority = Column(String)
+    priority_id = Column(Integer)
     issuelinks = Column(String)
+    creator = Column(String)
     assignee = Column(String)
     reporter = Column(String)
     status = Column(String)
@@ -22,7 +23,7 @@ class MyJiraProject(Base):
     created = Column(TIMESTAMP)
     updated = Column(TIMESTAMP)
     resolutiondate = Column(TIMESTAMP)
-    duedate = Column(TIMESTAMP)
+    duedate = Column(Date)
     duration = Column(Integer)
 
     def __str__(self):
@@ -38,7 +39,9 @@ class MyJiraProject(Base):
         issue.summary = issue_dict['summary']
         issue.description = issue_dict['description']
         issue.priority = issue_dict['priority']
+        issue.priority_id = issue_dict['priority_id']
         issue.issuelinks = issue_dict['issuelinks']
+        issue.creator = issue_dict['creator']
         issue.assignee = issue_dict['assignee']
         issue.reporter = issue_dict['reporter']
         issue.status = issue_dict['status']
