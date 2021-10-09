@@ -33,11 +33,12 @@ def process_issue(issue):
     issue_dict['issuelinks'] = outward_issues
 
     issue_dict['creator'] = issue_fields['creator']['displayName']
-    issue_dict['assignee'] = issue_fields['assignee']['displayName']
-    issue_dict['reporter'] = issue_fields['reporter']['displayName']
+
+    issue_dict['assignee'] = None if issue_fields['assignee'] is None else issue_fields['assignee']['displayName']
+    issue_dict['reporter'] = None if issue_fields['reporter'] is None else issue_fields['reporter']['displayName']
     issue_dict['status'] = issue_fields['status']['name']
     issue_dict['status_category'] = issue_fields['status']['statusCategory']['name']
-    issue_dict['resolution'] = issue_fields['resolution']['name']
+    issue_dict['resolution'] = None if issue_fields['resolution'] is None else issue_fields['resolution']['name']
 
     issue_dict['created'] = parse(issue_fields['created'].split('+')[0])
     issue_dict['updated'] = parse(issue_fields['updated'].split('+')[0])
@@ -45,13 +46,13 @@ def process_issue(issue):
     if resolutiondate is not None:
         resolutiondate = resolutiondate.split('+')[0]
         issue_dict['resolutiondate'] = parse(resolutiondate)
-        issue_dict['duration'] = days_diference(issue_dict['created'], resolutiondate)
+        issue_dict['duration'] = days_diference(issue_dict['created'], issue_dict['resolutiondate'])
     else:
         now = datetime.now().replace(microsecond=0)
         issue_dict['resolutiondate'] = None
         issue_dict['duration'] = days_diference(issue_dict['created'], now)
 
-    issue_dict['duedate'] = parse(issue_fields['duedate']).date()
+    issue_dict['duedate'] = None if issue_fields['duedate'] is None else parse(issue_fields['duedate']).date()
 
     return issue_dict
 
@@ -87,13 +88,14 @@ if __name__ == "__main__":
 
             config_dict[line.split('#')[0]] = line.split('#')[1][0:-1]
 
-
     jira_session = jira_requests.mount_jira_session(config_dict['domain'])
     if jira_session is not None:
         issues = get_jira_issues(config_dict, jira_session.cookies)
         jira_session.close()
 
         print(len(issues))
+        for i in issues:
+            print(i)
 
 
 
