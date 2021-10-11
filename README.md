@@ -85,7 +85,8 @@ $ pip install -r requirements.txt
 - jira.config file, inserting the parameters of your Jira instance and the Query you want to do;  
 - database.config file, inserting the parameters for communication with your database;  
 - jira_requests.py file, inserting your credentials for HTTPBasicAuth  
-- db_connection.py file, inserting your credentials for acess the database.  
+- db_connection.py file, inserting your credentials for acess the database.
+
 **For professional purpose more things need to be changed, like:**  
 - jira.config file, inserting the parameters of your Jira instance and the Query you want to do;  
 - database.config file, inserting the parameters for communication with your database;  
