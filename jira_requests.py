@@ -6,8 +6,6 @@ from requests.packages.urllib3.util.retry import Retry
 from requests.exceptions import Timeout
 import traceback
 
-from my_jira_project import MyJiraProject
-
 
 def mount_jira_session(jira_domain):
     auth = HTTPBasicAuth('fake_user', 'not_a_real_password')
@@ -65,7 +63,7 @@ def get_jira_issues(jira_config, cookies):
         if jira_issues is not None:
             total = jira_issues['total']
             for issue in jira_issues['issues']:
-                issues_list.append(MyJiraProject.process_issue(issue))
+                issues_list.append(issue)
 
         if start_at + max_results >= total:
             break
