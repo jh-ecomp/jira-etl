@@ -52,7 +52,7 @@ This script is modular, so feel free to forget the whole database thing and buil
   
 Before you begin, you will need to have the following tools installed on your machine:  
 [Git] (https://git-scm.com), [Python 3.6+] (https://https://www.python.org/), [PostgreSQL] (https://www.postgresql.org/).  
-As a suggestion, use a modern editor like [Pycharm] (https://www.jetbrains.com/pt-br/pycharm/) or [VSCode ] (https://code.visualstudio.com/)  
+As a suggestion, use a modern editor like [Pycharm] (https://www.jetbrains.com/pycharm/) or [VSCode ] (https://code.visualstudio.com/)  
   
 #### Dependencies  
   
